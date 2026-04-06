@@ -21,6 +21,34 @@
     <script type="module" crossorigin src="./assets/index-BjskkBJk.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DlA7iNbP.css">
     <!-- lab2-build:2026-04-06T09:38:26.455890Z -->
+<script>
+(function(){
+  var BASE='/kb-design-lab2';
+  var p=location.pathname;
+  if (p===BASE || p===BASE+'/' || p===BASE+'/index.html') {
+    location.replace(BASE+'/about'+location.search+location.hash);
+    return;
+  }
+  var _push=history.pushState.bind(history);
+  var _replace=history.replaceState.bind(history);
+  function norm(url){
+    if (typeof url!=='string') return url;
+    if (!url.startsWith('/')) return url;
+    if (url=== '/' || url=== BASE || url=== BASE+'/' || url=== BASE+'/index.html') return BASE+'/about';
+    if (url.startsWith(BASE+'/')) return url;
+    return BASE+url;
+  }
+  history.pushState=function(s,t,u){ return _push(s,t,norm(u)); };
+  history.replaceState=function(s,t,u){ return _replace(s,t,norm(u)); };
+  document.addEventListener('click', function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;
+    if(!a) return;
+    var h=a.getAttribute('href');
+    if(!h||!h.startsWith('/')) return;
+    a.setAttribute('href', norm(h));
+  }, true);
+})();
+</script>
 </head>
 
   <body>
