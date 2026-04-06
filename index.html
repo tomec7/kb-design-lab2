@@ -31,6 +31,7 @@
           if (url === '/') return BASE + '/';
           if (url.startsWith('/#')) return BASE + url.slice(1);
           if (url.startsWith('/?')) return BASE + url;
+          if (url.startsWith('/') && !url.startsWith(BASE + '/')) return BASE + url;
           return url;
         }
 
