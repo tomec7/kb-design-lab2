@@ -47,7 +47,7 @@
           if (!a) return;
           var href = a.getAttribute('href');
           if (!href) return;
-          if (href === '/' || href === '/#' || href.startsWith('/?') || href.startsWith('/#')) {
+          if (href.startsWith('/')) {
             a.setAttribute('href', mapUrl(href));
           }
         }, true);
