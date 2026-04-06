@@ -13,12 +13,12 @@
 
         // normalize /index.html -> /
         if (location.pathname === BASE) {
-          location.replace(BASE + '/' + location.search + location.hash);
+          location.replace(BASE + '/about' + location.search + location.hash);
           return;
         }
 
-        if (location.pathname === BASE + '/index.html') {
-          location.replace(BASE + '/' + location.search + location.hash);
+        if (location.pathname === BASE + '/' || location.pathname === BASE + '/index.html') {
+          location.replace(BASE + '/about' + location.search + location.hash);
           return;
         }
 
