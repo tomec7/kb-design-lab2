@@ -9,8 +9,14 @@
     <title>Krásny Exteriér - 3D Garden Visualizations</title>    
     <script>
       (function(){
-        // custom domain root mode: keep clean root URLs
-        if (location.pathname === '/index.html') {
+        // LAB2 root fix: avoid homepage 404 on first open
+        var p = location.pathname;
+        if (p === '/kb-design-lab2' || p === '/kb-design-lab2/' || p === '/kb-design-lab2/index.html') {
+          location.replace('/kb-design-lab2/about/' + location.search + location.hash);
+          return;
+        }
+        // keep clean root URL when opened directly at /index.html
+        if (p === '/index.html') {
           location.replace('/' + location.search + location.hash);
         }
       })();
