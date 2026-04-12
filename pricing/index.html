@@ -11,41 +11,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://tomec7.github.io/kb-design-lab2/pricing/" />
     <meta property="og:image" content="https://tomec7.github.io/kb-design-lab2/logo-ke.png" />    
-    <script>
-      (function(){
-        var BASE = '/kb-design-lab2';
-        function mapUrl(url){
-          if (typeof url !== 'string') return url;
-          if (url === '/' || url === '/index.html') return BASE + '/';
-          if (url.startsWith(BASE + '/')) return url;
-          if (url.startsWith('/')) {
-            var out = BASE + url;
-            if (!out.endsWith('/') && !/\.[a-z0-9]+$/i.test(out) && !out.includes('?') && !out.includes('#')) out += '/';
-            return out;
-          }
-          return url;
-        }
-        if (location.pathname === BASE) {
-          location.replace(BASE + '/' + location.search + location.hash);
-          return;
-        }
-        if (location.pathname.startsWith(BASE + '/') && !location.pathname.endsWith('/') && !/\.[a-z0-9]+$/i.test(location.pathname)) {
-          location.replace(location.pathname + '/' + location.search + location.hash);
-          return;
-        }
-        var _push = history.pushState.bind(history);
-        var _replace = history.replaceState.bind(history);
-        history.pushState = function(s,t,u){ return _push(s,t,mapUrl(u)); };
-        history.replaceState = function(s,t,u){ return _replace(s,t,mapUrl(u)); };
-        document.addEventListener('click', function(e){
-          var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
-          if (!a) return;
-          var h = a.getAttribute('href');
-          if (!h) return;
-          if (h.startsWith('/')) a.setAttribute('href', mapUrl(h));
-        }, true);
-      })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
