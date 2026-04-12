@@ -1,0 +1,16 @@
+{
+  "name": "Krásny Exteriér",
+  "short_name": "Krásny Exteriér",
+  "start_url": "/kb-design-lab2/",
+  "scope": "/kb-design-lab2/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/kb-design-lab2/logo-ke.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
