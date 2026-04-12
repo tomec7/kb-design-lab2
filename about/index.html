@@ -59,6 +59,25 @@
     <script src="/kb-design-lab2/assets/manus-runtime.js"></script>
 
     <div id="root"></div>
+<script>
+(function(){
+  function applyLazy(){
+    var imgs=document.querySelectorAll('img');
+    for(var i=0;i<imgs.length;i++){
+      var img=imgs[i];
+      if(i<2){
+        if(!img.getAttribute('loading')) img.setAttribute('loading','eager');
+      }else{
+        img.setAttribute('loading','lazy');
+      }
+      if(!img.getAttribute('decoding')) img.setAttribute('decoding','async');
+    }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',applyLazy,{once:true});
+  else applyLazy();
+  new MutationObserver(applyLazy).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
 </body>
 
 </html>
